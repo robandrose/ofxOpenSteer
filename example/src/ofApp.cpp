@@ -1,6 +1,6 @@
-#include "testApp.h"
+#include "ofApp.h"
 
-void testApp::setup(){
+void ofApp::setup(){
 	
 	ofEnableAlphaBlending();
 	
@@ -23,11 +23,11 @@ void testApp::setup(){
 	setSimulation(0);
 }
 
-void testApp::update(){
+void ofApp::update(){
 	currentSimulation->update();
 }
 
-void testApp::draw(){
+void ofApp::draw(){
 	cam.begin();
 		currentSimulation->draw();
 	cam.end();
@@ -42,7 +42,7 @@ void testApp::draw(){
 	ofDrawBitmapString(ss.str(), 10.f,20.f);
 }
 
-void testApp::keyPressed( int key ){
+void ofApp::keyPressed( int key ){
 	
 	if( key == OF_KEY_LEFT ){
 		simulationIndex--;
@@ -56,7 +56,7 @@ void testApp::keyPressed( int key ){
 	}
 }
 
-void testApp::setSimulation( int simulationIndex ){
+void ofApp::setSimulation( int simulationIndex ){
 	// just make sure we are inside out vector
 	this->simulationIndex = ofClamp(simulationIndex, 0, simulations.size() - 1);
 	
